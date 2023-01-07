@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuseumApp.API", "MuseumApp.API\MuseumApp.API.csproj", "{C8ADD2AB-120C-4B5A-BF2E-B5E8F8299E2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuseumApp.Core", "MuseumApp.Core\MuseumApp.Core.csproj", "{A4FB9511-995F-4B66-99A1-B08682D56397}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuseumApp.Infrastructure", "MuseumApp.Infrastructure\MuseumApp.Infrastructure.csproj", "{3651973B-D9BA-4953-A420-607EA165FD26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuseumApp.Services", "MuseumApp.Services\MuseumApp.Services.csproj", "{190D4AA9-F952-4668-8A82-F866BE9F5908}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C8ADD2AB-120C-4B5A-BF2E-B5E8F8299E2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8ADD2AB-120C-4B5A-BF2E-B5E8F8299E2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8ADD2AB-120C-4B5A-BF2E-B5E8F8299E2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8ADD2AB-120C-4B5A-BF2E-B5E8F8299E2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4FB9511-995F-4B66-99A1-B08682D56397}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4FB9511-995F-4B66-99A1-B08682D56397}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4FB9511-995F-4B66-99A1-B08682D56397}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4FB9511-995F-4B66-99A1-B08682D56397}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3651973B-D9BA-4953-A420-607EA165FD26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3651973B-D9BA-4953-A420-607EA165FD26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3651973B-D9BA-4953-A420-607EA165FD26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3651973B-D9BA-4953-A420-607EA165FD26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{190D4AA9-F952-4668-8A82-F866BE9F5908}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{190D4AA9-F952-4668-8A82-F866BE9F5908}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{190D4AA9-F952-4668-8A82-F866BE9F5908}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{190D4AA9-F952-4668-8A82-F866BE9F5908}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

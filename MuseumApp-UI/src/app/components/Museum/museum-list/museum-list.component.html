@@ -1,0 +1,106 @@
+
+  <div class="content">
+
+    <div class="container">
+      <h2 class="mb-5" style="color: blue"><b>Museums</b></h2>
+
+
+      <div class="table-responsive custom-table-responsive">
+
+        <table class="table custom-table">
+          <thead>
+            <tr>
+              <th scope="col">Museum Name</th>
+              <th scope="col">Type</th>
+              <th scope="col">Address</th>
+              <th scope="col">Articles</th>
+              <th scope="col" class="col-md-1">
+                <div class="fa-stack">
+                  <i class="fa fa-plus-circle" (click)="goCreateMuseum()"></i>
+                </div></th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let museum of dataObs| async;">
+            <tr scope="row">
+              <td>
+                {{museum.name}}
+              </td>
+              <td>
+                {{museum.type}}
+              </td>
+              <td>
+                {{museum.address}}
+              </td>
+              <td>
+                <button type="button" class="button-article btn btn-success btn-lg btn-block"><i class="fa fa-plus"
+                  (click)="goCreateArticle()"></i></button>
+                <button type="button" class="button-article btn btn-success btn-lg btn-block" style="margin-left: 0.2cm;"
+                (click)="goArticlesList(museum)"><i class="fa fa-eye"></i></button>
+              </td>
+              <td class="col-md-1">
+                <i class="fa fa-info-circle fa-lg info" data-toggle="modal" data-target="#details"
+                (click)="_museum = museum"></i>
+
+                <i class="far fa-edit fa-lg edit2" (click)="editMuseum($event, museum)"></i>
+
+                <i class="far fa-trash-alt fa-lg trash2" data-toggle="modal" data-target="#confirmDelete"
+                (click)="_museum = museum"></i>
+              </td>
+            </tr>
+            <tr class="spacer"><td colspan="100"></td></tr>
+
+          </tbody>
+        </table>
+        <mat-paginator style="font-size: 0.4cm; color: black;" showFirstLastButtons [length]="100"
+              [pageSize]="3"
+              [pageSizeOptions]="[3, 5, 10, 15, 20]"
+              aria-label="Select page">
+        </mat-paginator>
+      </div>
+
+
+    </div>
+
+  </div>
+
+
+
+
+<!-- Modal delete confirmation -->
+<div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="header-modal-delete">
+        <div class="modal-title" id="exampleModalLongTitle">Delete confirmation</div>
+      </div>
+      <div class="modal-body">
+        <b>You are going to delete this museum and all his data. Are you sure ??</b>
+      </div>
+      <div class="text-center">
+        <button type="button" class="button-modal btn btn-success btn-lg btn-block" data-dismiss="modal" (click)="deleteMuseum($event, _museum)">OK</button>
+        <button type="button" class="button-modal btn btn-success btn-lg btn-block" data-dismiss="modal" style="margin-left:0.5cm">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal museum -->
+<div class="modal fade" id="details" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="header-modal">
+        <div class="modal-title" id="exampleModalLongTitle">Museum Details</div>
+      </div>
+      <div class="modal-body">
+        <b>Id</b>: {{_museum.id}} <br>
+        <b>Name</b>: {{_museum.name}}<br>
+        <b>Type</b>: {{_museum.type}} <br>
+        <b>Address</b>: {{_museum.address}} <br>
+      </div>
+      <div class="text-center">
+        <button type="button" class="button-modal btn btn-success btn-lg btn-block" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>

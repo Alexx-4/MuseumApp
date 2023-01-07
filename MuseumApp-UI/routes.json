@@ -1,0 +1,11 @@
+{
+  "serverURL":"https://localhost:5001/api/",
+
+  "routeTitlePage": "home",
+
+  "listMuseums": "museums",
+  "formMuseum": "museums/create",
+
+  "listArticles": "articles",
+  "formArticle": "articles/create"
+}

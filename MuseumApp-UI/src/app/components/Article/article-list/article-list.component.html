@@ -1,0 +1,106 @@
+
+  <div class="content">
+
+    <div class="container">
+      <h2 class="mb-5" style="color: blue"><b>Articles</b></h2>
+
+
+      <div class="table-responsive custom-table-responsive">
+
+        <table class="table custom-table">
+          <thead>
+            <tr>
+              <th scope="col">Article Name</th>
+              <th scope="col">Description</th>
+              <th scope="col">Museum</th>
+              <th scope="col">Damaged</th>
+              <th scope="col" class="col-md-1">
+                </th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let article of dataObs| async;">
+            <tr scope="row">
+              <td [style.color]="!article.damaged ? 'hsl(240, 2%, 16%)' : 'rgb(243, 65, 65)'">
+                {{article.name}}
+              </td>
+
+              <td [style.color]="!article.damaged ? 'hsl(240, 2%, 16%)' : 'rgb(243, 65, 65)'">
+                {{article.description}}
+              </td>
+
+              <td [style.color]="!article.damaged ? 'hsl(240, 2%, 16%)' : 'rgb(243, 65, 65)'">
+                {{currentMuseum.name}}
+              </td>
+
+              <td [style.color]="!article.damaged ? 'hsl(240, 2%, 16%)' : 'rgb(243, 65, 65)'">
+                <div *ngIf="article.damaged">Yes</div>
+                <div *ngIf="!article.damaged">No</div>
+              </td>
+              <td class="col-md-1">
+                <i class="fa fa-info-circle fa-lg info" data-toggle="modal" data-target="#details"
+                (click)="_article = article"></i>
+
+                <i class="far fa-edit fa-lg edit2" (click)="editArticle($event, article)"></i>
+
+                <i class="far fa-trash-alt fa-lg trash2" data-toggle="modal" data-target="#confirmDelete"
+                (click)="_article = article"></i>
+              </td>
+            </tr>
+            <tr class="spacer"><td colspan="100"></td></tr>
+
+          </tbody>
+        </table>
+        <mat-paginator style="font-size: 0.4cm; color: black;" showFirstLastButtons [length]="100"
+              [pageSize]="3"
+              [pageSizeOptions]="[3, 5, 10, 15, 20]"
+              aria-label="Select page">
+        </mat-paginator>
+      </div>
+
+
+    </div>
+
+  </div>
+
+
+
+
+<!-- Modal delete confirmation -->
+<div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="header-modal-delete">
+        <div class="modal-title" id="exampleModalLongTitle">Delete confirmation</div>
+      </div>
+      <div class="modal-body">
+        <b>You are going to delete this article and all his data. Are you sure ??</b>
+      </div>
+      <div class="text-center">
+        <button type="button" class="button-modal btn btn-success btn-lg btn-block" data-dismiss="modal" (click)="deleteArticle($event, _article)">OK</button>
+        <button type="button" class="button-modal btn btn-success btn-lg btn-block" data-dismiss="modal" style="margin-left:0.5cm">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal article -->
+<div class="modal fade" id="details" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="header-modal">
+        <div class="modal-title" id="exampleModalLongTitle">Article Details</div>
+      </div>
+      <div class="modal-body">
+        <b>Id</b>: {{_article.id}} <br>
+        <b>Name</b>: {{_article.name}}<br>
+        <b>Description</b>: {{_article.description}} <br>
+        <b>Damaged</b>: {{_article.damaged}} <br>
+        <b>MuseumId</b>: {{_article.museumId}}
+      </div>
+      <div class="text-center">
+        <button type="button" class="button-modal btn btn-success btn-lg btn-block" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
