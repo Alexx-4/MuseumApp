@@ -118,8 +118,7 @@ export class ArticleFormComponent implements OnInit {
             museum: _museum?.name
           });
           this.articleId = data.id;
-
-
+          this.museumId = data.museumId;
         }
       }});
   }
